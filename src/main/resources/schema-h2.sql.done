@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS STOCKS;
+CREATE TABLE stocks (
+ticker VARCHAR(10) NOT NULL,
+startDay DATE NOT NULL,
+open NUMBER(10, 2) NOT NULL,
+high NUMBER(10, 2) NOT NULL,
+low NUMBER(10, 2) NOT NULL,
+close NUMBER(10, 2) NOT NULL,
+volume NUMBER(20, 2) NOT NULL,
+PRIMARY KEY (ticker, startDay)
+) AS SELECT * FROM CSVREAD('/Users/zachmarcin/Zipcode/TCUK/SecondHalf/FinalProject/StockApi/src/main/resources/stocksWithCorrectHeaders.csv');
